@@ -31,12 +31,17 @@ io.on('connection', (socket) => {
                 chat.insertOne(dataElement, (err,res) => { 
                     if(err) throw err;
                     socket.emit('message',dataElement); 
-                    console.log("message seen");
+                    console.log("message sent");
                 });
                 onlineUsers.findOne({"name":data.toUser}, (err,res) => { //checks if the recipient of the message is online
                     if(err) throw err;
-                    if(res!=null) //if the recipient is found online, the message is emmitted to him/her
+                    if(res!=null){
                         socket.to(res.ID).emit('message',dataElement);
+                        console.log("message seen")
+
+                    } //if the recipient is found online, the message is emmitted to him/her
+                        
+
                     	
                 });
             }
