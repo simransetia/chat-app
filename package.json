@@ -8,7 +8,7 @@
     "start": "node server",
     "dev": "nodemon server"
   },
-  "author": "Neelabh Sinha",
+  "author": "Simran",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
